@@ -47,8 +47,8 @@ def tzoffset(key):
 
 site['TIME_OFFSET'] = pd.Series([tzoffset(tzn) for tzn in site.TIME_ZONE.values], index = site.index)
 refdate = np.datetime64('1970-01-01', '[ns]')
-startdate = np.datetime64('2016-01-01 00:00:00', '[ns]')
-enddate = np.datetime64('2017-01-01 00:00:00', '[ns]')
+startdate = np.datetime64('2015-01-01 00:00:00', '[ns]')
+enddate = np.datetime64('2016-01-01 00:00:00', '[ns]')
 sites = data['SITE_ID']
 usites = site['SITE_ID']
 usites = site['SITE_ID']
@@ -116,7 +116,7 @@ for ri, row in site.iterrows():
         sitedates = sitedata['DATE_TIME'] - np.timedelta64(tzoff*3600, 's')
         reldates = sitedates - startdate
         hoursss = (reldates.values / 3600e9).astype('i')
-        inyear = (hoursss > 0) & (hoursss <= ntimes)
+        inyear = (hoursss > 0) & (hoursss < ntimes)
         print(inyear.sum())
         timeidx = hoursss[inyear]
         siteyeardata = sitedata[inyear]
