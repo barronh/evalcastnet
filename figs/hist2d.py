@@ -53,6 +53,6 @@ for monthk, monthi in season.items():
     ax.set_xlabel(args.obsname + ' O3 ppb ({:.0f}, {:.0f}, {:.0f})'.format(cnetmin, cnetmean, cnetmax))
     ax.set_ylabel(args.modname + ' O3 ppb ({:.0f}, {:.0f}, {:.0f})'.format(cnetmin, cnetmean, cnetmax))
     ax.plot([0, vmax], [0, vmax], color = 'k')
-    ax.figure.savefig('figs/hist2d/hist2d_O3_' + monthk + '.png')
+    ax.figure.savefig('hist2d/hist2d_O3_' + monthk + '.png')
 
-os.system('touch > figs/hist2d/updated')
+os.system('date > hist2d/updated')

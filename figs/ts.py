@@ -68,7 +68,7 @@ for monthk, monthi in season.items():
         ax.xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%Y-%m-%d'))
         ax.set_position([.1, .2, .8, .7])
         plt.setp(ax.get_xticklabels(), rotation = 90)
-        ax.figure.savefig('figs/ts/ts_{}_{}.png'.format(sitename, monthk))
+        ax.figure.savefig('ts/ts_{}_{}.png'.format(sitename, monthk))
 
 import os
-os.system('date > figs/ts/updated')
+os.system('date > ts/updated')
